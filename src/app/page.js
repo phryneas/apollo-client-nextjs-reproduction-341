@@ -1,7 +1,20 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { query } from "./ac";
+import { ClientComponent } from "./clientComponent";
 
-export default function Home() {
+export default async function Home() {
+  if (1 > 2) {
+    console.log(
+      query(
+        gql`
+          query {
+            hello
+          }
+        `
+      )
+    );
+  }
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -26,6 +39,7 @@ export default function Home() {
             />
           </a>
         </div>
+        <ClientComponent />
       </div>
 
       <div className={styles.center}>
